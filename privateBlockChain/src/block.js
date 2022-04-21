@@ -90,6 +90,6 @@ class Block {
   }
 }
 let block = new Block("test")
-console.log(block.getBData())
+//console.log(block.getBData())
 
 module.exports.Block = Block // Exposing the Block class as a module
