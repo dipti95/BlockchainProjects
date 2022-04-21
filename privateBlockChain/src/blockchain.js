@@ -64,10 +64,10 @@ class Blockchain {
     let self = this
     return new Promise(async (resolve, reject) => {
       try {
-        block.height = this.chain.length
+        block.height = self.chain.length
         block.time = new Date().getTime().toString().slice(0, -3)
-        if (this.chain.length > 0) {
-          const previousBlock = this.chain[this.chain.length - 1]
+        if (self.chain.length > 0) {
+          const previousBlock = self.chain[self.chain.length - 1]
           block.previousBlockHash = previousBlock.hash
         }
         block.hash = SHA256(JSON.stringify(block)).toString()
