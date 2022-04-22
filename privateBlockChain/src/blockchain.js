@@ -69,11 +69,19 @@ class Blockchain {
         if (self.chain.length > 0) {
           const previousBlock = self.chain[self.chain.length - 1]
           block.previousBlockHash = previousBlock.hash
+          block.hash = SHA256(JSON.stringify(block)).toString()
+          let errorLog = await self.validateChain()
+          if (errorLog.length === 0) {
+            self.chain.push(block)
+            self.height += 1
+            resolve(block + "Block added")
+          } else reject("Block Not Added")
+        } else {
+          block.hash = SHA256(JSON.stringify(block)).toString()
+          self.chain.push(block)
+          self.height += 1
+          resolve(block + "Block added")
         }
-        block.hash = SHA256(JSON.stringify(block)).toString()
-        self.chain.push(block)
-        self.height += 1
-        resolve(block + "Block added")
       } catch (err) {
         reject(err)
       }
