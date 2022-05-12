@@ -149,7 +149,7 @@ Do not use the [Old depreacted zipped starter code](https://s3.amazonaws.com/vid
   StarNotary
 
 3. ERC-721 Token Symbol:
-   MYD
+   MDY
 
 4. “Token Address” on the Rinkeby Network:
    "0x46D18Af97637B0ae81cF12b06f06f5f6E08FAcb5"
