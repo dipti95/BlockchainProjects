@@ -145,13 +145,13 @@ Do not use the [Old depreacted zipped starter code](https://s3.amazonaws.com/vid
   Solidity v0.5.16 (solc-js)
   Node v12.22.12
 
-2. ERC-721 Token Name 
+2. ERC-721 Token Name: 
   StarNotary
 
-3. ERC-721 Token Symbol
+3. ERC-721 Token Symbol:
    MYD
 
-4. “Token Address” on the Rinkeby Network
+4. “Token Address” on the Rinkeby Network:
    "0x46D18Af97637B0ae81cF12b06f06f5f6E08FAcb5"
 
 5. Create Star
