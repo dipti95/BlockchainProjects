@@ -157,14 +157,14 @@ Do not use the [Old depreacted zipped starter code](https://s3.amazonaws.com/vid
 5. ### Create Star
  ![Create Star:](./IMG/CreateStar.png)
 
-7. ### Deploy contract to Rinkeby:
+6. ### Deploy contract to Rinkeby:
   ![Deploy contract to Rinkeby:](./IMG/DeployContractToRinkeby.png)
 
-8. ### Etherscan
+7. ### Etherscan
   ![Etherscan:](./IMG/Etherscan.png)
 
-9. ### Importing Token
+8. ### Importing Token
   ![Importing Token:](./IMG/ImportingToken.png)
 
-10. ### Look Up Star
+9. ### Look Up Star
   ![Look Up Star:](./IMG/LookUpStar.png)
