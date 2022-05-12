@@ -154,12 +154,17 @@ Do not use the [Old depreacted zipped starter code](https://s3.amazonaws.com/vid
 4. “Token Address” on the Rinkeby Network
    "0x46D18Af97637B0ae81cF12b06f06f5f6E08FAcb5"
 
-5. ![Create Star:](./IMG/CreateStar.png)
+5. Create Star
+ ![Create Star:](./IMG/CreateStar.png)
 
-6. ![Deploy contract to Rinkeby:](./IMG/DeployContractToRinkeby)
+7. Deploy contract to Rinkeby:
+  ![Deploy contract to Rinkeby:](./IMG/DeployContractToRinkeby.png)
 
-7. ![Etherscan:](./IMG/Etherscan)
+8. Etherscan
+  ![Etherscan:](./IMG/Etherscan.png)
 
-8. ![Importing Token:](./IMG/ImportingToken)
+9. Importing Token
+  ![Importing Token:](./IMG/ImportingToken.png)
 
-9. ![Look Up Star:](./IMG/LookUpStar)
+10. Look Up Star
+  ![Look Up Star:](./IMG/LookUpStar.png)
