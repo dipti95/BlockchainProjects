@@ -1,17 +1,4 @@
-# Supply chain & data auditing
-
-This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
-
-The DApp User Interface when running should look like...
-
-![truffle test](images/ftc_product_overview.png)
-
-![truffle test](images/ftc_farm_details.png)
-
-![truffle test](images/ftc_product_details.png)
-
-![truffle test](images/ftc_transaction_history.png)
-
+# CofeeBeansSupplyChainDapp_project
 
 ## Getting Started
 
@@ -27,22 +14,34 @@ Give examples (to be clarified)
 
 ### Installing
 
-> The starter code is written for **Solidity v0.4.24**. At the time of writing, the current Truffle v5 comes with Solidity v0.5 that requires function *mutability* and *visibility* to be specified (please refer to Solidity [documentation](https://docs.soliditylang.org/en/v0.5.0/050-breaking-changes.html) for more details). To use this starter code, please run `npm i -g truffle@4.1.14` to install Truffle v4 with Solidity v0.4.24. 
-
-A step by step series of examples that tell you have to get a development env running
-
-Clone this repository:
+> The starter code is written for **Solidity v0.4.24**. At the time of writing, the current Truffle v5 comes with Solidity v0.5 that requires function _mutability_ and _visibility_ to be specified (please refer to Solidity [documentation](https://docs.soliditylang.org/en/v0.5.0/050-breaking-changes.html) for more details). To use this starter code, please run `npm i -g truffle@4.1.14` to install Truffle v4 with Solidity v0.4.24.
 
 ```
-git clone https://github.com/udacity/nd1309/tree/master/course-5/project-6
-```
-
-Change directory to ```project-6``` folder and install all requisite npm packages (as listed in ```package.json```):
-
-```
-cd project-6
+cd CoffeeBeansSupplyChainDapp_Project
 npm install
 ```
+
+### Part-1
+
+#### UML
+
+Activity Diagram
+![activityDiagram](UML/ActivityDiagram.png)
+
+Sequence Diagram
+![sequenceDiagram](UML/SequenceDiagram.png)
+
+State Diagram
+![stateDiagram](UML/StateDiagram.png)
+
+Data Modeling
+![stateDiagram](UML/DateModeling.png)
+
+#### Library used
+
+truffle-hdwallet-provider: For deploying in rinkeby network. used in truffle-config.js file;
+
+### Part -2
 
 Launch Ganache:
 
@@ -50,21 +49,13 @@ Launch Ganache:
 ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"
 ```
 
-Your terminal should look something like this:
-
-![truffle test](images/ganache-cli.png)
-
 In a separate terminal window, Compile smart contracts:
 
 ```
 truffle compile
 ```
 
-Your terminal should look something like this:
-
-![truffle test](images/truffle_compile.png)
-
-This will create the smart contract artifacts in folder ```build\contracts```.
+This will create the smart contract artifacts in folder `build\contracts`.
 
 Migrate smart contracts to the locally running blockchain, ganache-cli:
 
@@ -72,9 +63,9 @@ Migrate smart contracts to the locally running blockchain, ganache-cli:
 truffle migrate
 ```
 
-Your terminal should look something like this:
+![truffle migrate](CoffeeBeans_Project_IMG/truffle-migrate.png)
 
-![truffle test](images/truffle_migrate.png)
+### Part-3
 
 Test smart contracts:
 
@@ -82,9 +73,7 @@ Test smart contracts:
 truffle test
 ```
 
-All 10 tests should pass.
-
-![truffle test](images/truffle_test.png)
+![truffle test](CoffeeBeans_Project_IMG/testCases.png)
 
 In a separate terminal window, launch the DApp:
 
@@ -92,21 +81,25 @@ In a separate terminal window, launch the DApp:
 npm run dev
 ```
 
-## Built With
+### Part - 4
 
-* [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
-* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
-to make the web faster, safer, and more open.
-* [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
+Deploy in public network
 
+```
+truffle migrate --network rinkeby
+```
 
-## Authors
+![truffle migrate --network rinkeby](CoffeeBeans_Project_IMG/migrate_rinkebyNetwork.png)
 
-See also the list of [contributors](https://github.com/your/project/contributors.md) who participated in this project.
+##### Trasaction hash: 0x279f3f0fe47d302e71a106106dacf0cc0915f3c7d7c490902a1412c221eb3cd5
 
-## Acknowledgments
+https://rinkeby.etherscan.io/tx/0x279f3f0fe47d302e71a106106dacf0cc0915f3c7d7c490902a1412c221eb3cd5
 
-* Solidity
-* Ganache-cli
-* Truffle
-* IPFS
+### Part-5
+
+##### Front End
+
+![productOverview](CoffeeBeans_Project_IMG/frontend.png)
+![FarmDetail](CoffeeBeans_Project_IMG/frontend-Farmdetail.png)
+![productDetail](CoffeeBeans_Project_IMG/frontEnd_ProductDetail.png)
+![TransactionHistory](CoffeeBeans_Project_IMG/transactionHistory.png)
