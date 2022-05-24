@@ -25,17 +25,17 @@ npm install
 
 #### UML
 
-Activity Diagram
+Activity Diagram:
 
 ![activityDiagram](UML/ActivityDiagram.png)
 
-Sequence Diagram
+Sequence Diagram:
 ![sequenceDiagram](UML/SequenceDiagram.png)
 
-State Diagram
+State Diagram:
 ![stateDiagram](UML/StateDiagram.png)
 
-Data Modeling
+Data Modeling:
 ![stateDiagram](UML/DateModeling.png)
 
 #### Library used
