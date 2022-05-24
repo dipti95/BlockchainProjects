@@ -40,7 +40,8 @@ Data Modeling:
 
 #### Library used
 
-truffle-hdwallet-provider: For deploying in rinkeby network. used in truffle-config.js file;
+- truffle-hdwallet-provider:
+  For deploying in rinkeby network. used in truffle-config.js file;
 
 ### Part -2
 
