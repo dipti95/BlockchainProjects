@@ -26,6 +26,7 @@ npm install
 #### UML
 
 Activity Diagram
+
 ![activityDiagram](UML/ActivityDiagram.png)
 
 Sequence Diagram
