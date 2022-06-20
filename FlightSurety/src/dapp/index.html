@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>FlightSurety</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">FlightSurety</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <main class="container"  >
+      <p>
+      <div id="display-wrapper" class="top-20"></div>
+      </p>
+      <h2>Airline Detail:</h2>
+      <div class="row top-20" style="border: pink solid">
+        <div>
+          <label class="form"><strong>Fund registered Airline:</strong></label>
+          <select id="airlines"></select>
+
+          <btn class="btn btn-primary" id="is_airlineFunded"
+            >IsAirlineFunded</btn
+          >
+          <div>
+            FundAmount:
+            <input type="text" id="airline-fund" placeholder="10Ether" />
+            <btn class="btn btn-primary" id="fund-airline">Fund Airline</btn>
+          </div>
+        </div>
+      </div>
+
+      <div class="row top-20" style="margin-top: 30px;border:pink solid;">
+        <label class="form">Airline Address</label>
+        <input type="text" id="airline_address" />
+        <label class="form">Airline Name</label>
+        <input type="text" id="airline_name" />
+        <btn class="btn btn-primary" id="register-airline"
+          >Register airline</btn
+        >
+      </div>
+
+      <!-- <div style="margin-top: 40px">
+        <h5>Registered Airline:</h5>
+        <div id="display-wrapper-registeredAirline"></div>
+      </div> -->
+    </main>
+
+    <main class="container" style="background-color: blue;">
+      <h2>Flight Detail:</h2>
+      <div class="row top-20" style="border: pink solid;">
+        <label class="form">Address</label>
+          <input type="text" id="address" />
+          <label class="form">Flight Name</label>
+          <input type="text" id="flight_name" />
+          <label class="form">Timestamp</label>
+          <input type="text" id="timestamp" />
+          <btn class="btn btn-primary" id="register-flight"
+            >Register Flight</btn>
+      </div>
+      <div style="margin-top: 40px">
+        <h5>registered Flight:</h5>
+        <div id="display-wrapper-registerFlight"></div>
+      </div>
+      <div class="row top-20" style="border: pink solid">
+        <div>
+         <label class="form">Airline</label>
+     
+          <input type="text" id="airlineaddress" />
+        </div>
+        <div>
+          <label class="form">Flight</label>
+          
+          <input type="text" id="flightname" />
+        </div>
+        <div>
+          <label class="form">Timestamp</label>
+          <input type="text" id="_timestamp" />
+        </div>
+        <div>
+          <label class="form">Passenger</label>
+          <input type="text" id="passenger-address" />
+        </div>
+        <div>
+        <label class="form">Amount:</label>
+        <input type="text" id="insurance-amt" placeholder="1Ether"/>
+        </div>
+          <btn class="btn btn-primary" id="buy-insurance">Buy</btn>
+      </div>
+
+      <div style="margin-top: 40px">
+        <h5>BuyInsurance:</h5>
+        <div id="display-wrapper-BuyInsurance"></div>
+      </div>
+    </main>
+
+    <main class="container" style="background-color: green;">
+      <h2>Oracle:</h2>
+      <div class="row top-20" style="border: pink solid ;margin-top: 30px;">
+        <div>
+          <!-- <label class="form">Airline</label>
+          <input type="text" id="airline-address" /> -->
+          <label class="form">Flight</label>
+          <input type="text" id="flight-number" />
+          <!-- <label class="form">Timestamp</label>
+          <input type="text" id="timestamp" /> -->
+        </div>
+        <btn class="btn btn-primary" id="submit-oracle">Submit to Oracles</btn>
+      </div>
+    </main>
+
+    <main class="container" class="top-20" style="background-color: purple;">
+      <h2>Passenger Detail:</h2>
+
+      <div class="row top-20" style="border: pink solid ;margin-top: 30px;">
+        <label class="form">Check Credit </label>
+        <input
+          type="text"
+          id="passanger-address"
+          placeholder="Passenger Address"
+       
+        />
+        <btn class="btn btn-primary" id="credit"
+          >Check Credit</btn
+        >
+        <btn
+          class="btn btn-primary"
+          id="withdraw"
+          style="margin-left: 10px"
+          >Withdraw</btn
+        >
+      </div>
+
+      <div style="margin-top: 40px">
+        <h5>Amount:</h5>
+        <div id="display-wrapper-creditAmount"></div>
+      </div>
+    </main>
+  </body>
+</html>
