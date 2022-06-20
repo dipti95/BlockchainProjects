@@ -63,16 +63,32 @@ export default class Contract {
   fetchFlightStatus(airline, flight, timestamp, callback) {
     let self = this
     let payload = {
-      airline: self.airlines[0],
+      airline: airline,
       flight: flight,
-      timestamp: Math.floor(Date.now() / 1000),
+      timestamp: timestamp,
     }
     self.flightSuretyApp.methods
       .fetchFlightStatus(payload.airline, payload.flight, payload.timestamp)
       .send({ from: self.owner }, (error, result) => {
         callback(error, payload)
+
+        console.log(error)
       })
   }
+
+  // fetchFlightStatus(flight, callback) {
+  //   let self = this
+  //   let payload = {
+  //     airline: self.airlines[0],
+  //     flight: flight,
+  //     timestamp: Math.floor(Date.now() / 1000),
+  //   }
+  //   self.flightSuretyApp.methods
+  //     .fetchFlightStatus(payload.airline, payload.flight, payload.timestamp)
+  //     .send({ from: self.owner }, (error, result) => {
+  //       callback(error, payload)
+  //     })
+  // }
 
   async isAirlineFunded(airline, callback) {
     // let self = this
@@ -102,11 +118,6 @@ export default class Contract {
       .send({ from: self.owner, gas: "4500000" }, (error, result) => {
         callback(error, result)
       })
-
-    // this.airlines = await this.flightSuretyApp.methods
-    //   .getRegisteredAirlines()
-    //   .call({ from: self.owner })
-    // console.log(this.airlines)
   }
 
   async registerFlight(address, name, timestamp, callback) {
@@ -140,19 +151,6 @@ export default class Contract {
       }
     )
   }
-
-  // async creditInsurees(address, callback) {
-  //   let self = this
-  //   // self.flightSuretyApp.methods
-  //   //   .creditInsurees(address)
-  //   //   .send({ from: self.owner }, (error, result) => {
-  //   //     callback(error, result)
-  //   //   })
-
-  //   self.flightSuretyApp.methods
-  //     .creditInsurees(address)
-  //     .call({ from: self.owner }, callback)
-  // }
 
   fundAirline(airline, funds, callback) {
     let self = this

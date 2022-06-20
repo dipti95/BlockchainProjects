@@ -1,6 +1,6 @@
 var HDWalletProvider = require("truffle-hdwallet-provider")
 var mnemonic =
-  "puppy reduce damage hub pact any winner team never define trick uncover"
+  "early horror insect adult old answer hamster fabric copy public apology wide"
 
 //var NonceTrackerSubprovider = require("web3-provider-engine/subproviders/nonce-tracker")
 module.exports = {

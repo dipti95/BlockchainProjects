@@ -13,28 +13,48 @@ let flightSuretyApp = new web3.eth.Contract(
   config.appAddress
 )
 
-let oracles = 20
-let registeredOracles = []
-let STATUS_CODES = [0, 10, 20, 30, 40, 50]
+const oracles = 30
+
+const STATUS_CODE_UNKNOWN = 0
+const STATUS_CODE_ON_TIME = 10
+const STATUS_CODE_LATE_AIRLINE = 20
+const STATUS_CODE_LATE_WEATHER = 30
+const STATUS_CODE_LATE_TECHNICAL = 40
+const STATUS_CODE_LATE_OTHER = 50
+
+const statusCodeArr = [
+  STATUS_CODE_UNKNOWN,
+  STATUS_CODE_ON_TIME,
+  STATUS_CODE_LATE_AIRLINE,
+  STATUS_CODE_LATE_WEATHER,
+  STATUS_CODE_LATE_TECHNICAL,
+  STATUS_CODE_LATE_OTHER,
+]
+
+const registeredOracles = []
 
 web3.eth.getAccounts((error, accounts) => {
-  for (let i = 0; i < oracles; i++) {
+  for (let idx = 0; idx < oracles; idx++) {
     flightSuretyApp.methods.registerOracle().send(
       {
-        from: accounts[i],
+        from: accounts[idx],
         value: web3.utils.toWei("1", "ether"),
         gas: 9999999,
       },
       (error, result) => {
         flightSuretyApp.methods
           .getMyIndexes()
-          .call({ from: accounts[i] }, (error, result) => {
+          .call({ from: accounts[idx] }, (error, result) => {
             let oracle = {
-              address: accounts[i],
+              account: accounts[idx],
               index: result,
             }
             registeredOracles.push(oracle)
-            console.log("ORACLE REGISTERED: " + JSON.stringify(oracle))
+            console.log(
+              "ORACLE REGISTERED:" +
+                JSON.stringify(oracle.account) +
+                JSON.stringify(oracle.index)
+            )
           })
       }
     )
@@ -55,20 +75,20 @@ flightSuretyApp.events.OracleRequest(
     console.log(flight)
     console.log(index)
     console.log(timestamp)
+    //statusCode =20 just for testing
     let statusCode = 20
-    //STATUS_CODES[Math.floor(Math.random() * STATUS_CODES.length)]
+    //statusCodeArr[Math.floor(Math.random() * statusCodeArr.length)]
 
-    for (let i = 0; i < registeredOracles.length; i++) {
-      if (registeredOracles[i].index.includes(index)) {
+    for (let idx = 0; idx < registeredOracles.length; idx++) {
+      if (registeredOracles[idx].index.includes(index)) {
         flightSuretyApp.methods
           .submitOracleResponse(index, airline, flight, timestamp, statusCode)
           .send(
-            { from: registeredOracles[i].address, gas: 9999999 },
+            { from: registeredOracles[idx].address, gas: 9999999 },
             (error, result) => {
               console.log(
-                "FROM" +
-                  JSON.stringify(registeredOracles[i]) +
-                  "STATUS CODE: " +
+                JSON.stringify(registeredOracles[idx]) +
+                  "STATUS-CODE:" +
                   statusCode
               )
             }

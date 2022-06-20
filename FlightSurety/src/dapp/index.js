@@ -21,13 +21,13 @@ import "./flightsurety.css"
       console.log("clicked")
 
       let flight = DOM.elid("flight-number").value
-      let airline = DOM.elid("airline-address").value
-      let timestamp = DOM.elid("timestamp").value
+      let airline = DOM.elid("airline__address").value
+      let timestamp = DOM.elid("__timestamp").value
       // Write transaction
       contract.fetchFlightStatus(
-        //airline,
+        airline,
         flight,
-        //timestamp,
+        timestamp,
         (error, result) => {
           console.log(result)
           display("Oracles", "Trigger oracles", [
@@ -148,7 +148,7 @@ import "./flightsurety.css"
     })
     DOM.elid("credit").addEventListener("click", () => {
       console.log("clicked")
-      let passengerAddress = DOM.elid("passanger-address").value
+      let passengerAddress = DOM.elid("passanger__address").value
       contract.getPassengerCredit(passengerAddress, (error, result) => {
         displayTx("display-wrapper-creditAmount", [
           {
@@ -157,7 +157,7 @@ import "./flightsurety.css"
             value: result + " ETH",
           },
         ])
-        DOM.elid("passanger-address").value = ""
+        DOM.elid("passanger__address").value = ""
       })
     })
 
