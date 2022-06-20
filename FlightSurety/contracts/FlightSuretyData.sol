@@ -56,7 +56,7 @@ contract FlightSuretyData {
     
     
     uint256 public count =0;
-    uint256 totalFunds = 0;
+    uint256 totalInsuredAmt = 0;
 
 
 
@@ -307,10 +307,10 @@ contract FlightSuretyData {
                             payable
                             requireIsOperational
     {
-        if (passengers[passengerAddress].passengerAddress != address(0)) { // Existing passenger
+        if (passengers[passengerAddress].passengerAddress != address(0)) { 
             require(passengers[passengerAddress].insuredFlights[flightKey] == 0, "This flight is already insured");
             
-        } else { // New passenger
+        } else { 
             passengers[passengerAddress] = Passenger({
                 passengerAddress: passengerAddress,
                 credit: 0
@@ -318,7 +318,7 @@ contract FlightSuretyData {
             passengerAddresses.push(passengerAddress);
         }
         passengers[passengerAddress].insuredFlights[flightKey] = insuredAmount;
-        totalFunds = totalFunds.add(insuredAmount); 
+        totalInsuredAmt = totalInsuredAmt.add(insuredAmount); 
     }
 
     function creditInsurees
@@ -329,11 +329,12 @@ contract FlightSuretyData {
                                 requireIsOperational
     {
         for (uint256 i = 0; i < passengerAddresses.length; i++) {
-            if(passengers[passengerAddresses[i]].insuredFlights[flightKey] != 0) { // Insured flights
+            if(passengers[passengerAddresses[i]].insuredFlights[flightKey] != 0) {
                 uint256 payedPrice = passengers[passengerAddresses[i]].insuredFlights[flightKey];
                 uint256 credit = passengers[passengerAddresses[i]].credit;
                 passengers[passengerAddresses[i]].insuredFlights[flightKey] = 0;
                 passengers[passengerAddresses[i]].credit = credit + payedPrice + payedPrice.div(2); 
+               
             }
         }
     }
@@ -347,8 +348,8 @@ contract FlightSuretyData {
                             requireIsOperational
     {
         
-        require(passengers[insuredPassenger].passengerAddress != address(0), "The passenger is not insured");
-        require(passengers[insuredPassenger].credit > 0, "There is no credit pending");
+        require(passengers[insuredPassenger].passengerAddress != address(0), "Not insured");
+        require(passengers[insuredPassenger].credit > 0, " No credit pending");
         uint256 credit = passengers[insuredPassenger].credit;
         
         passengers[insuredPassenger].credit = 0;

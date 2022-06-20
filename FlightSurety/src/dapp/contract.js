@@ -41,9 +41,6 @@ export default class Contract {
       if (!this.airlines || !this.airlines.length) {
         alert("There is no airline available")
       }
-      //   while (this.airlines.length < 5) {
-      //     this.airlines.push(accts[counter++])
-      //   }
 
       while (this.passengers.length < 5) {
         this.passengers.push(accts[counter++])
@@ -76,36 +73,11 @@ export default class Contract {
       })
   }
 
-  // fetchFlightStatus(flight, callback) {
-  //   let self = this
-  //   let payload = {
-  //     airline: self.airlines[0],
-  //     flight: flight,
-  //     timestamp: Math.floor(Date.now() / 1000),
-  //   }
-  //   self.flightSuretyApp.methods
-  //     .fetchFlightStatus(payload.airline, payload.flight, payload.timestamp)
-  //     .send({ from: self.owner }, (error, result) => {
-  //       callback(error, payload)
-  //     })
-  // }
-
   async isAirlineFunded(airline, callback) {
-    // let self = this
-
-    // let x = await self.flightSuretyData.methods
-    //   .isAirlineFunded(airline)
-    //   .send({ from: self.owner, gas: "4500000" }, (error, result) => {
-    //     callback(error, result)
-    //     console.log(result)
-    //   })
-
     let self = this
     self.flightSuretyData.methods
       .isAirlineFunded(airline)
       .call({ from: self.owner }, callback)
-
-    //console.log(x)
   }
 
   async registerAirline(airline, name, callback) {
@@ -136,12 +108,12 @@ export default class Contract {
       )
   }
 
-  async buy(address, name, timestamp, passangerAddress, amt, callback) {
+  async buy(address, name, timestamp, passengerAddress, amt, callback) {
     let self = this
     let amount = self.web3.utils.toWei(amt, "ether").toString()
     await self.flightSuretyApp.methods.buy(name, address, timestamp).send(
       {
-        from: passangerAddress,
+        from: passengerAddress,
         value: amount,
         gas: 5000000,
         gasPrice: 20000000,
@@ -162,17 +134,17 @@ export default class Contract {
       })
   }
 
-  getPassengerCredit(passangerAddress, callback) {
+  getPassengerCredit(passengerAddress, callback) {
     let self = this
     self.flightSuretyApp.methods
-      .getPassengerCredit(passangerAddress)
+      .getPassengerCredit(passengerAddress)
       .call({ from: self.owner }, callback)
   }
 
-  withdrawCredit(pessangerAddress, callback) {
+  withdraw(passengerAddress, callback) {
     let self = this
     self.flightSuretyApp.methods
-      .withdrawCredit(pessangerAddress)
+      .withdraw(passengerAddress)
       .send({ from: self.owner }, (error, result) => {
         callback(error, result)
       })

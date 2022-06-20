@@ -66,18 +66,18 @@ flightSuretyApp.events.OracleRequest(
     fromBlock: 0,
   },
   function (error, event) {
-    let index = event.returnValues.index
     let airline = event.returnValues.airline
     let flight = event.returnValues.flight
     let timestamp = event.returnValues.timestamp
+    let index = event.returnValues.index
 
     console.log(airline)
     console.log(flight)
     console.log(index)
     console.log(timestamp)
-    //statusCode =20 just for testing
-    let statusCode = 20
-    //statusCodeArr[Math.floor(Math.random() * statusCodeArr.length)]
+
+    const statusCode =
+      statusCodeArr[Math.floor(Math.random() * statusCodeArr.length)]
 
     for (let idx = 0; idx < registeredOracles.length; idx++) {
       if (registeredOracles[idx].index.includes(index)) {

@@ -87,6 +87,7 @@ import "./flightsurety.css"
         //   },
         // ])
       })
+      window.location.reload()
       DOM.elid("airline-address").value = ""
       DOM.elid("airline_name").value = ""
     })
@@ -146,9 +147,11 @@ import "./flightsurety.css"
         }
       )
     })
+
     DOM.elid("credit").addEventListener("click", () => {
       console.log("clicked")
-      let passengerAddress = DOM.elid("passanger__address").value
+      let passengerAddress = DOM.elid("__address__").value
+      console.log(passengerAddress)
       contract.getPassengerCredit(passengerAddress, (error, result) => {
         displayTx("display-wrapper-creditAmount", [
           {
@@ -157,17 +160,17 @@ import "./flightsurety.css"
             value: result + " ETH",
           },
         ])
-        DOM.elid("passanger__address").value = ""
+        DOM.elid("__address__").value = ""
       })
     })
 
     DOM.elid("withdraw").addEventListener("click", () => {
-      let passengerAddress = DOM.elid("passanger-address").value
-      contract.withdrawCredit(passengerAddress, (error, result) => {
+      let passengerAddress = DOM.elid("__address__").value
+      contract.withdraw(passengerAddress, (error, result) => {
         displayTx("display-wrapper-creditAmount", [
           { label: "Credit", error: error, value: result + " ETH" },
         ])
-        DOM.elid("passanger-address").value = ""
+        DOM.elid("__address__").value = ""
       })
     })
   })

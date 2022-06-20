@@ -251,9 +251,10 @@ contract FlightSuretyApp {
         flightSuretyData.buy.value(msg.value)(flightKey, msg.sender, msg.value);
     }
 
-     function withdrawCredit(address pessangerAddress) external{
-        require(pessangerAddress != address(0), "Provide valid address");
-        flightSuretyData.pay(pessangerAddress);
+   
+     function withdraw(address passengerAddress) external{
+        require(passengerAddress != address(0), "Provide valid address");
+        flightSuretyData.pay(passengerAddress);
     }
 
     
