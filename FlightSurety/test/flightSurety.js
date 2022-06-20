@@ -67,9 +67,6 @@ contract("Flight Surety Tests", async (accounts) => {
     let newAirline4 = accounts[4]
     let newAirline5 = accounts[5]
 
-    //let before = await config.flightSuretyApp.getRegisteredAirlines()
-    //console.log(before)
-
     let fundAmount = new BigNumber(web3.utils.toWei("10", "ether"))
     let name = await config.flightSuretyData.airlineName(config.owner)
 
